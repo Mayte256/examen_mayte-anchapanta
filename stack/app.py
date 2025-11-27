@@ -21,7 +21,7 @@ HTML_PAGE = """
 <body>
     <div class="card">
         <h1>Vinueza App</h1>
-        <p>Aplicación funcionando correctamente con diseño moderno.</p>
+        <p>Aplicación funcionando correctamente con diseño modernoooo.</p>
         <a href="/api" class="btn">Ver API JSON</a>
     </div>
 </body>
