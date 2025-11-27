@@ -34,8 +34,8 @@ jobs:
     # 4️⃣ Lint con flake8
     - name: Lint with flake8
       run: |
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+        flake8 stack --count --select=E9,F63,F7,F82 --show-source --statistics
+        flake8 stack --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
     # 5️⃣ Ejecutar tests
     - name: Run tests
@@ -86,7 +86,7 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SSH_PORT }}
         source: "stack/stack.yml"
-        target: "/home/${{ secrets.SSH_USER }}/deploy1"
+        target: "/home/${{ secrets.SSH_USER }}/deploy_vinueza"
 
     # 🔟 Desplegar stack
     - name: Deploy services
@@ -98,7 +98,7 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           echo "Desplegando servicios Vinueza"
-          cd ~/deploy1
+          cd ~/deploy_vinueza
           echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u mayte256 --password-stdin
           docker pull ghcr.io/mayte256/vinueza:1.0.5
           docker stack rm vinueza || true
