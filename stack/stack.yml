@@ -1,9 +1,10 @@
 version: "3.8"
 
 services:
-  vinueza:
+  vinueza-app:
     image: ghcr.io/mayte256/vinueza:1.0.5
-
+    ports:
+      - "1003:1003"
     deploy:
       replicas: 1
       labels:
@@ -16,10 +17,9 @@ services:
         - "traefik.http.routers.vinueza-secure.rule=Host(`vinueza.byronrm.com`)"
         - "traefik.http.routers.vinueza-secure.tls=true"
         - "traefik.http.routers.vinueza-secure.tls.certresolver=letsencrypt"
-        - "traefik.http.routers.vinueza-secure.service=vinueza"
-        - "traefik.http.services.vinueza.loadbalancer.server.port=1003"
+        - "traefik.http.routers.vinueza-secure.service=vinueza-app"
+        - "traefik.http.services.vinueza-app.loadbalancer.server.port=1003"
         - "traefik.docker.network=traefik-public"
-
     networks:
       - traefik-public
 
