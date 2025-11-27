@@ -1,0 +1,54 @@
+# === Entorno virtual ===
+venv/
+env/
+.venv/
+
+# === Archivos de Python ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+
+# === Archivos de configuración locales ===
+*.env
+.env.*
+!env.template
+
+# === Logs ===
+*.log
+logs/
+
+# === Pytest cache ===
+.pytest_cache/
+
+# === Coverage ===
+htmlcov/
+.coverage
+.coverage.*
+
+# === Archivos creados por herramientas ===
+*.DS_Store
+Thumbs.db
+
+# === Docker ===
+*.dockerignore
+docker-compose.override.yml
+
+# === VSCode ===
+.vscode/
+
+# === PyCharm ===
+.idea/
+
+# === Builds / Distribución ===
+build/
+dist/
+*.egg-info/
+*.egg
+
+# === Otros ===
+*.swp
+*.bak
+*~
